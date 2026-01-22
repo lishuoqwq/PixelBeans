@@ -2046,6 +2046,7 @@ export default function Home() {
                       width={640}
                       height={640}
                       sizes="(min-width: 640px) 50vw, 100vw"
+                      unoptimized
                       className="w-full h-auto rounded-md"
                     />
                   </div>
@@ -2063,6 +2064,7 @@ export default function Home() {
                       width={640}
                       height={640}
                       sizes="(min-width: 640px) 50vw, 100vw"
+                      unoptimized
                       className="w-full h-auto rounded-md"
                     />
                   </div>
