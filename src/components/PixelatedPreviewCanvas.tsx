@@ -20,6 +20,12 @@ interface PixelatedPreviewCanvasProps {
   onHighlightComplete?: () => void;
 }
 
+type ExtendedCanvasRenderingContext2D = CanvasRenderingContext2D & {
+  mozImageSmoothingEnabled?: boolean;
+  webkitImageSmoothingEnabled?: boolean;
+  msImageSmoothingEnabled?: boolean;
+};
+
 // 绘制像素化画布的函数
 const drawPixelatedCanvas = (
   dataToDraw: MappedPixel[][],
@@ -40,9 +46,10 @@ const drawPixelatedCanvas = (
   }
 
   // 禁用图像平滑以获得清晰的像素
-  (pixelatedCtx as any).mozImageSmoothingEnabled = false;
-  (pixelatedCtx as any).webkitImageSmoothingEnabled = false;
-  (pixelatedCtx as any).msImageSmoothingEnabled = false;
+  const extendedCtx = pixelatedCtx as ExtendedCanvasRenderingContext2D;
+  extendedCtx.mozImageSmoothingEnabled = false;
+  extendedCtx.webkitImageSmoothingEnabled = false;
+  extendedCtx.msImageSmoothingEnabled = false;
   pixelatedCtx.imageSmoothingEnabled = false;
 
   // Respect current dark mode preference
