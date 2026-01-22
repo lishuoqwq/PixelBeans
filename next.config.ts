@@ -26,8 +26,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cdn.webfem.com",
-        pathname: "/webfem/**",
+        hostname: "picture.whgd.eu.org",
+        pathname: "/file/**",
       },
     ],
   },

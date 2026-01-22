@@ -2041,7 +2041,7 @@ export default function Home() {
                 <div className="p-4">
                   <div className="rounded-lg border border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40 p-3">
                     <Image
-                      src="https://cdn.webfem.com/webfem/hello.png"
+                      src="https://picture.whgd.eu.org/file/1769091105832_hello.png"
                       alt="原图示例"
                       width={640}
                       height={640}
@@ -2059,7 +2059,7 @@ export default function Home() {
                 <div className="p-4">
                   <div className="rounded-lg border border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40 p-3">
                     <Image
-                      src="https://cdn.webfem.com/webfem/hello-pindou.png"
+                      src="https://picture.whgd.eu.org/file/1769091121611_hello-pindou.png"
                       alt="图案示例"
                       width={640}
                       height={640}
