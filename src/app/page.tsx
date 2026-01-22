@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, ChangeEvent, DragEvent, useEffect, useMemo, useCallback } from 'react';
 import Script from 'next/script';
+import Image from 'next/image';
 
 // 导入像素化工具和类型
 import {
@@ -2083,7 +2084,14 @@ export default function Home() {
               <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
                 <div className="p-4">
                   <div className="rounded-lg border border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40 p-3">
-                    <img src="https://cdn.webfem.com/webfem/hello.png" alt="原图示例" className="w-full h-auto rounded-md" />
+                    <Image
+                      src="https://cdn.webfem.com/webfem/hello.png"
+                      alt="原图示例"
+                      width={640}
+                      height={640}
+                      sizes="(min-width: 640px) 50vw, 100vw"
+                      className="w-full h-auto rounded-md"
+                    />
                   </div>
                 </div>
                 <div className="border-t border-gray-200 dark:border-gray-700 py-2 text-center text-sm font-semibold text-gray-700 dark:text-gray-200">
@@ -2093,7 +2101,14 @@ export default function Home() {
               <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
                 <div className="p-4">
                   <div className="rounded-lg border border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40 p-3">
-                    <img src="https://cdn.webfem.com/webfem/hello-pindou.png" alt="图案示例" className="w-full h-auto rounded-md" />
+                    <Image
+                      src="https://cdn.webfem.com/webfem/hello-pindou.png"
+                      alt="图案示例"
+                      width={640}
+                      height={640}
+                      sizes="(min-width: 640px) 50vw, 100vw"
+                      className="w-full h-auto rounded-md"
+                    />
                   </div>
                 </div>
                 <div className="border-t border-gray-200 dark:border-gray-700 py-2 text-center text-sm font-semibold text-gray-700 dark:text-gray-200">

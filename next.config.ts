@@ -22,7 +22,15 @@ const withPWA = require("next-pwa")({
 });
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.webfem.com",
+        pathname: "/webfem/**",
+      },
+    ],
+  },
 };
 
 export default withPWA(nextConfig);
