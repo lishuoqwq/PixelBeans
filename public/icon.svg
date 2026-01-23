@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="beanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B9D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8EBA;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cheekGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB5D6;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#FFB5D6;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="#FFF5F8"/>
+
+  <!-- Main bean body - rounded square with cute proportions -->
+  <rect x="106" y="106" width="300" height="300" rx="70" ry="70" fill="url(#beanGradient)"/>
+
+  <!-- Inner highlight for 3D effect -->
+  <ellipse cx="180" cy="180" rx="60" ry="50" fill="#FFFFFF" opacity="0.3"/>
+
+  <!-- Cute face -->
+  <!-- Left eye -->
+  <circle cx="190" cy="230" r="25" fill="#2D2D2D"/>
+  <circle cx="195" cy="225" r="8" fill="#FFFFFF"/>
+
+  <!-- Right eye -->
+  <circle cx="322" cy="230" r="25" fill="#2D2D2D"/>
+  <circle cx="327" cy="225" r="8" fill="#FFFFFF"/>
+
+  <!-- Cute blush cheeks -->
+  <ellipse cx="150" cy="280" rx="30" ry="20" fill="url(#cheekGradient)"/>
+  <ellipse cx="362" cy="280" rx="30" ry="20" fill="url(#cheekGradient)"/>
+
+  <!-- Happy smile -->
+  <path d="M 220 290 Q 256 330 292 290" stroke="#2D2D2D" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+  <!-- Center hole - perler bead characteristic -->
+  <circle cx="256" cy="256" r="15" fill="#FF5C8E" opacity="0.5"/>
+
+  <!-- Small sparkles -->
+  <g fill="#FFFFFF" opacity="0.8">
+    <circle cx="140" cy="150" r="6"/>
+    <circle cx="372" cy="150" r="6"/>
+    <circle cx="256" cy="390" r="8"/>
+  </g>
+
+  <!-- Optional: Cute accessory - small bow on top -->
+  <g transform="translate(256, 80)">
+    <ellipse cx="-30" cy="0" rx="25" ry="18" fill="#FFB5D6"/>
+    <ellipse cx="30" cy="0" rx="25" ry="18" fill="#FFB5D6"/>
+    <circle cx="0" cy="0" r="12" fill="#FF6B9D"/>
+  </g>
+</svg>
