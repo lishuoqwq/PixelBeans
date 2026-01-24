@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { getDisplayColorKey, ColorSystem } from '../utils/colorSystemUtils';
+import { getDisplayColorKey, ColorSystem, getContrastColor } from '../utils/colorSystemUtils';
 
 // Define the structure of the color data expected by the palette
 interface ColorData {
@@ -231,22 +231,10 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({
         const isSelected = selectedColor?.key === colorData.key;
         
         // 获取要显示的色号
-        const displayColorKey = isTransparent 
-          ? '' 
+        const displayColorKey = isTransparent
+          ? ''
           : (selectedColorSystem ? getDisplayColorKey(colorData.color, selectedColorSystem) : colorData.key);
-        
-        // 获取对比色用于文字显示
-        const getContrastColor = (hex: string): string => {
-          const rgb = {
-            r: parseInt(hex.slice(1, 3), 16),
-            g: parseInt(hex.slice(3, 5), 16),
-            b: parseInt(hex.slice(5, 7), 16)
-          };
-          // 计算亮度
-          const luma = (0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b) / 255;
-          return luma > 0.5 ? '#000000' : '#FFFFFF';
-        };
-        
+
         return (
           <button
             key={colorData.key}

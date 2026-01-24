@@ -6,9 +6,6 @@ export enum PixelationMode {
   Average = 'average',   // 真实模式（平均色）
 }
 
-// 定义色号系统类型
-export type ColorSystem = 'MARD' | 'COCO' | '漫漫' | '盼盼' | '咪小窝';
-
 // --- 必要的类型定义 ---
 export interface RgbColor {
   r: number;
@@ -169,7 +166,6 @@ export function calculatePixelGrid(
     mode: PixelationMode,
     t1FallbackColor: PaletteColor // 传入备用色
 ): MappedPixel[][] {
-    console.log(`Calculating pixel grid with mode: ${mode}`);
     const mappedData: MappedPixel[][] = Array(M).fill(null).map(() => Array(N).fill({ key: t1FallbackColor.key, color: t1FallbackColor.hex }));
     const cellWidthOriginal = imgWidth / N;
     const cellHeightOriginal = imgHeight / M;
@@ -215,6 +211,5 @@ export function calculatePixelGrid(
             mappedData[j][i] = finalCellColorData;
         }
     }
-    console.log(`Pixel grid calculation complete for mode: ${mode}`);
     return mappedData;
 } 

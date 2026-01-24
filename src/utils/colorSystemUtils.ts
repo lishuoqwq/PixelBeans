@@ -60,62 +60,28 @@ export function convertPaletteToColorSystem(
   });
 }
 
-// 获取指定色号系统的显示键 - 基于hex值的简化版本
-export function getDisplayColorKey(hexValue: string, colorSystem: ColorSystem): string {
+// 通过hex值获取指定色号系统的色号（支持特殊键处理）
+export function getColorKeyByHex(hexValue: string, colorSystem: ColorSystem): string {
   // 对于特殊键（如透明键），直接返回原键
   if (hexValue === 'ERASE' || hexValue.length === 0 || hexValue === '?') {
     return hexValue;
   }
-  
+
   // 标准化hex值（确保大写）
   const normalizedHex = hexValue.toUpperCase();
-  
-  // 通过hex值从colorSystemMapping获取目标色号系统的值
-  const colorMapping = typedColorSystemMapping[normalizedHex];
-  if (colorMapping && colorMapping[colorSystem]) {
-    return colorMapping[colorSystem];
-  }
-  
-  return '?'; // 如果找不到映射，返回 '?'
-}
 
-// 将色号键转换到hex值（支持任意色号系统）
-export function convertColorKeyToHex(displayKey: string, colorSystem: ColorSystem): string {
-  // 如果已经是hex值，直接返回
-  if (displayKey.startsWith('#') && displayKey.length === 7) {
-    return displayKey.toUpperCase();
-  }
-  
-  // 在colorSystemMapping中查找对应的hex值
-  for (const [hex, mapping] of Object.entries(typedColorSystemMapping)) {
-    if (mapping[colorSystem] === displayKey) {
-      return hex;
-    }
-  }
-  
-  return displayKey; // 如果找不到映射，返回原键
-}
-
-// 验证颜色在指定系统中是否有效
-export function isValidColorInSystem(hexValue: string, colorSystem: ColorSystem): boolean {
-  const mapping = typedColorSystemMapping[hexValue];
-  return mapping && mapping[colorSystem] !== undefined;
-}
-
-// 通过hex值获取指定色号系统的色号
-export function getColorKeyByHex(hexValue: string, colorSystem: ColorSystem): string {
-  // 标准化hex值（确保大写）
-  const normalizedHex = hexValue.toUpperCase();
-  
   // 查找映射
   const mapping = typedColorSystemMapping[normalizedHex];
   if (mapping && mapping[colorSystem]) {
     return mapping[colorSystem];
   }
-  
+
   // 如果找不到映射，返回 '?'
   return '?';
 }
+
+// getDisplayColorKey 保留为别名以保持向后兼容
+export const getDisplayColorKey = getColorKeyByHex;
 
 // 将hex颜色转换为HSL
 function hexToHsl(hex: string): { h: number; s: number; l: number } {
@@ -173,4 +139,16 @@ export function sortColorsByHue<T extends { color: string }>(colors: T[]): T[] {
     // 明度也相近时，按饱和度排序（高饱和度在前，让鲜艳的颜色更突出）
     return hslB.s - hslA.s;
   });
+}
+
+// 获取对比色（用于文字显示）
+export function getContrastColor(hex: string): string {
+  const rgb = {
+    r: parseInt(hex.slice(1, 3), 16),
+    g: parseInt(hex.slice(3, 5), 16),
+    b: parseInt(hex.slice(5, 7), 16)
+  };
+  // 计算亮度
+  const luma = (0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b) / 255;
+  return luma > 0.5 ? '#000000' : '#FFFFFF';
 } 

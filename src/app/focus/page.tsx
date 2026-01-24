@@ -483,7 +483,7 @@ export default function FocusMode() {
           </svg>
           返回
         </button>
-        <h1 className="text-lg font-medium text-gray-800">专心拼豆（AlphaTest）</h1>
+        <h1 className="text-lg font-medium text-gray-800">专心拼豆</h1>
         <button 
           onClick={() => setFocusState(prev => ({ ...prev, showSettingsPanel: true }))}
           className="text-gray-600 hover:text-gray-800"
