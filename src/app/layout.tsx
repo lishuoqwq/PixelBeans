@@ -17,12 +17,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "PixelBeans",
   description: "上传图片，调整精细度，一键生成像素画图纸，简单实用的像素画生成工具",
-  manifest: "/manifest.json",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: "PixelBeans",
-  },
   icons: {
     icon: [
       { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
@@ -54,6 +48,15 @@ export default function RootLayout({
       >
         {children}
         <Analytics />
+        <Script id="disable-pwa" strategy="afterInteractive">
+          {`
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.getRegistrations().then((registrations) => {
+                registrations.forEach((registration) => registration.unregister());
+              });
+            }
+          `}
+        </Script>
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7207313144293144"

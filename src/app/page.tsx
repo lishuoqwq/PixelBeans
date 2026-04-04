@@ -1847,8 +1847,9 @@ export default function Home() {
     />
 
     {/* Apply dark mode styles to the main container */}
-    <div className="min-h-screen p-4 sm:p-6 flex flex-col items-center bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 font-[family-name:var(--font-geist-sans)] overflow-x-hidden">
+    <div className="min-h-screen p-4 sm:p-6 flex flex-col items-center bg-[#f3f4f6] font-[family-name:var(--font-geist-sans)] overflow-x-hidden">
       {/* Apply dark mode styles to the header */}
+      {false && (
       <header className="w-full md:max-w-4xl text-center mt-6 mb-8 sm:mt-8 sm:mb-10 relative overflow-hidden">
         {/* Adjust decorative background colors for dark mode */}
         <div className="absolute top-0 left-0 w-48 h-48 bg-blue-100 dark:bg-blue-900 rounded-full opacity-30 dark:opacity-20 blur-3xl"></div>
@@ -1994,18 +1995,31 @@ export default function Home() {
           </p>
         </div>
       </header>
+      )}
+
+      <header className={`w-full md:max-w-4xl text-center ${originalImageSrc ? 'mt-8 mb-6 sm:mt-10 sm:mb-8' : 'mt-3 mb-3 sm:mt-4 sm:mb-4'}`}>
+        <div className="mx-auto max-w-3xl">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
+            将任何照片转换为 <span className="text-blue-600">拼豆图案</span>
+          </h1>
+          <p className="mt-2 text-sm sm:text-base leading-6 text-gray-600">
+            上传图片并立即转换为可打印的珠子图案。支持 MARD、COCO、漫漫、盼盼、咪咪等色板，
+            自动颜色匹配和珠子计数。
+          </p>
+        </div>
+      </header>
 
       {/* Apply dark mode styles to the main section */}
-      <main ref={mainRef} className="w-full md:max-w-4xl flex flex-col items-center space-y-5 sm:space-y-6 relative">
+      <main ref={mainRef} className="w-full md:max-w-5xl flex flex-col items-center space-y-5 sm:space-y-6 relative">
         {/* Apply dark mode styles to the Drop Zone */}
         <div
           onDrop={handleDrop} onDragOver={handleDragOver} onDragEnter={handleDragOver}
           onClick={isMounted ? triggerFileInput : undefined}
-          className={`border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 sm:p-8 text-center ${isMounted ? 'cursor-pointer hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-gray-800' : 'cursor-wait'} transition-all duration-300 w-full md:max-w-md flex flex-col justify-center items-center shadow-sm hover:shadow-md`}
-          style={{ minHeight: '130px' }}
+          className={`border-2 border-dashed border-gray-300 rounded-xl p-8 sm:p-10 text-center ${isMounted ? 'cursor-pointer hover:border-blue-400 hover:bg-white' : 'cursor-wait'} transition-all duration-300 w-full md:max-w-lg flex flex-col justify-center items-center bg-white/80 shadow-sm`}
+          style={{ minHeight: '190px' }}
         >
           {/* Icon color */}
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 sm:h-12 sm:w-12 text-gray-400 dark:text-gray-500 mb-2 sm:mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 sm:h-12 sm:w-12 text-gray-400 mb-3 sm:mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
              <path strokeLinecap="round" strokeLinejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
           </svg>
           {/* Text color */}
@@ -2016,10 +2030,10 @@ export default function Home() {
 
         {/* Apply dark mode styles to the Tip Box */}
         {!originalImageSrc && (
-          <div className="w-full md:max-w-md bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-3 rounded-lg border border-blue-100 dark:border-gray-600 shadow-sm">
+          <div className="w-full md:max-w-lg bg-[#e8f0ff] p-3 rounded-lg border border-[#cddffd] shadow-sm">
             {/* Icon color */}
-            <p className="text-xs text-indigo-700 dark:text-indigo-300 flex items-start">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 flex-shrink-0 text-blue-500 dark:text-blue-400 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <p className="text-xs text-[#3f62b8] flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 flex-shrink-0 text-[#5f86e5] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               {/* Text color */}
@@ -2031,15 +2045,15 @@ export default function Home() {
         {!originalImageSrc && (
           <section className="w-full md:max-w-5xl">
             <div className="text-center">
-              <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-gray-100">效果展示</h3>
-              <p className="mt-2 text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+              <h3 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900">效果展示</h3>
+              <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed">
                 拼豆是小型热熔珠，在底板上创建您的设计，享受像素艺术的乐趣。
               </p>
             </div>
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
-              <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
-                <div className="p-4">
-                  <div className="rounded-lg border border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40 p-3">
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                <div className="p-3 sm:p-4">
+                  <div className="rounded-xl border border-gray-200 bg-[#fafafa] p-2">
                     <Image
                       src="https://picture.whgd.eu.org/file/1769091105832_hello.png"
                       alt="原图示例"
@@ -2051,13 +2065,13 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <div className="border-t border-gray-200 dark:border-gray-700 py-2 text-center text-sm font-semibold text-gray-700 dark:text-gray-200">
+                <div className="border-t border-gray-200 py-2 text-center text-sm font-semibold text-gray-700">
                   原图
                 </div>
               </div>
-              <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
-                <div className="p-4">
-                  <div className="rounded-lg border border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40 p-3">
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                <div className="p-3 sm:p-4">
+                  <div className="rounded-xl border border-gray-200 bg-[#fafafa] p-2">
                     <Image
                       src="https://picture.whgd.eu.org/file/1769091121611_hello-pindou.png"
                       alt="图案示例"
@@ -2069,7 +2083,7 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <div className="border-t border-gray-200 dark:border-gray-700 py-2 text-center text-sm font-semibold text-gray-700 dark:text-gray-200">
+                <div className="border-t border-gray-200 py-2 text-center text-sm font-semibold text-gray-700">
                   图案
                 </div>
               </div>
