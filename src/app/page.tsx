@@ -2045,7 +2045,7 @@ export default function Home() {
         {!originalImageSrc && (
           <section className="w-full md:max-w-5xl">
             <div className="text-center">
-              <h3 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900">效果展示</h3>
+              <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">效果展示</h3>
               <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed">
                 拼豆是小型热熔珠，在底板上创建您的设计，享受像素艺术的乐趣。
               </p>
